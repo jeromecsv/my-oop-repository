@@ -9,4 +9,8 @@ public class Cage {
     public void setCage(ArrayList<Animal> cage) {
         this.cage = cage;
     }
+
+    public void free(String name){
+        System.out.println("You are now Free " + name);
+    }
 }

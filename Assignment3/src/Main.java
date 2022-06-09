@@ -4,8 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Cage cage = new Cage();
-        ArrayList<Animal> flyingAnimals = new ArrayList<>();  // List of Animals
+        Cage cage = new Cage(); //Instantiate the cage class to create new cage object
+        ArrayList<Animal> flyingAnimals = new ArrayList<>();  // Instantiate list of Animals to create new flyingAnimals object
 
         Lion lion = new Lion();
         lion.setName("Simba");
@@ -23,7 +23,7 @@ public class Main {
         System.out.println("");
         System.out.println("");
         if (lion instanceof Flyable) {  // Checking the lion if Flyable
-            flyingAnimals.add(lion);
+            flyingAnimals.add(lion);   //if true, lion will add to flyingAnimals object
         }
 
         Penguin penguin = new Penguin();
@@ -43,7 +43,7 @@ public class Main {
         System.out.println("");
         System.out.println("");
         if (penguin instanceof Flyable) {  // Checking penguin if Flyable
-            flyingAnimals.add(penguin);
+            flyingAnimals.add(penguin); // polymorphism
         }
 
         Cat cat = new Cat();
@@ -81,7 +81,7 @@ public class Main {
         System.out.println("");
         System.out.println("");
         if (dog instanceof Flyable) {   // Checking dog if Flyable
-            flyingAnimals.add(dog);
+            flyingAnimals.add(dog); // polymorphism
         }
 
         Cockroch cockroch = new Cockroch();
@@ -108,10 +108,14 @@ public class Main {
         System.out.println("Cage Flying Animals");
         ArrayList<Animal> cagedAnimals = cage.getCage();  // get the list of caged animals
 
-        for (Animal animal:
-             cagedAnimals) {
-            System.out.println(animal.getName());
+        for (Animal animal: cagedAnimals) {
+            System.out.println(animal.getName());   //print all caged animals
+        }
 
+        System.out.println("Flying Animals set to be free:");
+        Cage freeAnimals = new Cage();
+        for (Animal animal: cagedAnimals) {
+            freeAnimals.free(animal.getName());
         }
     }
 }
