@@ -1,12 +1,10 @@
-public class RomanClock extends Clock implements Hour{
-
+public class RomanClock extends Clock implements Hour{   //-----------------INHERITANCE
     private int hour;
-
-
-
     public RomanClock(int hour) {
         this.hour = hour;
     }
+
+    //------------------- ENCAPSULATION / POLYMORPHISM-----------------------//
     @Override
     public String getTime() {
         int hour = getHour();
@@ -22,6 +20,7 @@ public class RomanClock extends Clock implements Hour{
         return roman.toString();
     }
 
+    //----------------------------- ENCAPSULATION ------------------------------//
     @Override
     public int getHour() {
         return this.hour;
