@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         String select;
-
             StringBlocks initialSelectionBlock = new StringBlocks();
             Scanner input = new Scanner(System.in);
             Operation createAccount = new Operation();

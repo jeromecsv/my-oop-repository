@@ -5,7 +5,10 @@ import java.util.Scanner;
 public class Operation {
 
     StringBlocks operation = new StringBlocks();
-    Account displayInfo = new RegularAccount();
+
+    Account regDisplay = new RegularAccount();
+    Account intDisplay = new InterestAccount();
+    Account checkDisplay = new InterestAccount();
 
     public void performOperation(){
         operation.operationSelection();
@@ -21,8 +24,7 @@ public class Operation {
                 System.out.println("You must Withdraw");
                 break;
             case "3":
-                System.out.println("You must Display Account");
-                displayInfo.displayAccountInfo();
+                regDisplay.displayAccountInfo();
                 break;
             case "4":
                 System.out.println("You must Display Transaction");
@@ -33,19 +35,36 @@ public class Operation {
     }
     public void accountCreation(){
         StringBlocks selectedAccountType = new StringBlocks();
-        Account account = new RegularAccount();
+
+        Account regularAccount = new RegularAccount();
+        Account interestAccount = new InterestAccount();
+        Account checkingAccount = new CheckingAccount();
+
         selectedAccountType.createAccountSelection();
         Scanner type = new Scanner(System.in);
         System.out.print("Enter account type: ");
         String acctType = type.next();
         Scanner name = new Scanner(System.in);
         String acctName;
+        System.out.print("Enter Account Name: ");
+
         switch (acctType){
             case "1":
-                System.out.print("Enter Account Name: ");
                 acctName = type.next();
-                account.setName(acctName);
-                account.displayAccountInfo();
+                regularAccount.setName(acctName);
+                regularAccount.displayAccountInfo();
+                performOperation();
+                break;
+            case "2" :
+                acctName = type.next();
+                interestAccount.setName(acctName);
+                interestAccount.displayAccountInfo();
+                performOperation();
+                break;
+            case "3" :
+                acctName = type.next();
+                checkingAccount.setName(acctName);
+                checkingAccount.displayAccountInfo();
                 performOperation();
                 break;
         }

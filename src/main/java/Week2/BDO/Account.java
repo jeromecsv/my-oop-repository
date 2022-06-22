@@ -12,6 +12,16 @@ public class Account {
     private double amount;
     private double interestCharge;
 
+    public String getAccType() {
+        return accType;
+    }
+
+    public void setAccType(String accType) {
+        this.accType = accType;
+    }
+
+    private String accType;
+
     public double getInterestCharge() {
         return interestCharge;
     }
@@ -87,4 +97,5 @@ public class Account {
         this.setAcctNum(String.format("%06d",generateRandomAcc()));
         System.out.println("Account Number: "+ this.getAcctNum());
     }
+
 }
