@@ -1,4 +1,4 @@
-package Week3;
+package Week3.CSVDataProcessing;
 
 public class SFTEmployees {
 

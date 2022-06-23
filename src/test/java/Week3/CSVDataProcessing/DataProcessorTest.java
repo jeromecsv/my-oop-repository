@@ -1,5 +1,9 @@
-package Week3;
+package Week3.CSVDataProcessing;
 
+import Week3.CSVDataProcessing.SFTAcademyDataProcessor;
+import Week3.CSVDataProcessing.SFTAcademyDataProcessorClass;
+import Week3.CSVDataProcessing.SFTAcademyFileReader;
+import Week3.CSVDataProcessing.SFTEmployees;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -61,15 +65,13 @@ public class DataProcessorTest {
         //arrange
         when(csvFileReader.read()).thenReturn(List.of("1,jerome,34,100000", "2,restan,27,90000", "3,jay,27,195000", "4,wayne,29,75000"));
         //act
-        List<SFTEmployees> sftEmployees = sFtAcademyProcessor.processSorter();
+        List<SFTEmployees> employees = sFtAcademyProcessor.processSorter();
         //assert
-        List<SFTEmployees> employees = sftEmployees;
-
         assertThat(employees).extracting("id", "name", "age", "salary").containsExactly(
-                tuple(3L, "jay", 27L, 195000d),
-                tuple(1L, "jerome", 34L, 100000d),
-                tuple(2L, "restan", 27L, 90000d),
-                tuple(4L, "wayne", 29L, 75000d));
+                tuple(3L, "jay", 27L, 195_000d),
+                tuple(1L, "jerome", 34L, 100_000d),
+                tuple(2L, "restan", 27L, 90_000d),
+                tuple(4L, "wayne", 29L, 75_000d));
     }
     @Test
     @DisplayName("GIVEN fileReader that returns valid data from dataStore.csv, SFTAcademyDataProcessor.execute()" + "should return List<SftEmployees> employees with Net Salary")
@@ -77,24 +79,24 @@ public class DataProcessorTest {
         //arrange
         when(csvFileReader.read()).thenReturn(List.of("1,jerome,34,100000", "2,restan,27,90000", "3,jay,27,195000", "4,wayne,29,75000"));
         //act
-        List<SFTEmployees> sftEmployees = sFtAcademyProcessor.processNetSalary();
+        List<SFTEmployees> employees = sFtAcademyProcessor.processNetSalary();
         //assert
-        List<SFTEmployees> employees = sftEmployees;
         assertThat(employees).extracting("id", "name", "age", "salary").containsExactly(
-                tuple(1L, "jerome", 34L, 88000d),
-                tuple(2L, "restan", 27L, 79200d),
-                tuple(3L, "jay", 27L, 171600d),
-                tuple(4L, "wayne", 29L, 66000d));
+                tuple(1L, "jerome", 34L, 88_000d),
+                tuple(2L, "restan", 27L, 79_200d),
+                tuple(3L, "jay", 27L, 171_600d),
+                tuple(4L, "wayne", 29L, 66_000d));
     }
     @Test
     @DisplayName("IVEN fileReader that returns valid data from dataStore.csv, SFTAcademyDataProcessor.execute()\" + \"should return Name of Employee named Jerome")
     public void filterByName() throws IOException {
         //ARRANGE
         when(csvFileReader.read()).thenReturn(List.of("1,jerome,34,100000", "2,restan,27,90000", "3,jay,27,195000", "4,wayne,29,75000"));
+        String names = null;
         //ACT
-        //ASSERT
         List<SFTEmployees> employees = sFtAcademyProcessor.processNameFilter();
+        //ASSERT
         assertThat(employees).extracting("id", "name", "age", "salary").containsExactly(
-                  tuple(1L, "jerome", 34L, 100000d));
+                  tuple(1L, "jerome", 34L, 100_000d));
     }
 }

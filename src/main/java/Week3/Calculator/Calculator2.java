@@ -1,4 +1,4 @@
-package Week3;
+package Week3.Calculator;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,5 +1,7 @@
-package Week3;
+package Week3.CSVDataProcessing;
 
+import Week3.CSVDataProcessing.CSVFileReader;
+import Week3.CSVDataProcessing.SFTAcademyFileReader;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

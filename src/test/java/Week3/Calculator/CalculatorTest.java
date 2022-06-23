@@ -1,4 +1,4 @@
-package Week3;
+package Week3.Calculator;
 
 import org.junit.jupiter.api.Test;
 
